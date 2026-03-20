@@ -5,7 +5,7 @@ import axios from "axios";
 const App = () => {
   const [notes, setnotes] = useState([]);
   function fetchnotes() {
-    axios.get("http://localhost:4000/notes").then((res) => {
+    axios.get("https://lect93-hoja.onrender.com/notes").then((res) => {
       setnotes(res.data.notes);
     });
   }
@@ -18,7 +18,7 @@ const App = () => {
     const { name, pin } = e.target.elements;
     console.log(name.value, pin.value);
     axios
-      .post("http://localhost:4000/notes", {
+      .post("https://lect93-hoja.onrender.com/notes", {
         name: name.value,
         pin: pin.value,
       })
@@ -30,7 +30,7 @@ const App = () => {
   }
 
   function handleDleteNote(noteid) {
-    axios.delete("http://localhost:4000/notes/" + noteid)
+    axios.delete("https://lect93-hoja.onrender.com/notes/" + noteid)
       .then((res) => console.log(res.data));
       fetchnotes()
   }
